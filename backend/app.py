@@ -19,11 +19,6 @@ st.subheader("Data Summary")
 
 # Make a GET request to the /graphs/ endpoint
 response = requests.get('http://localhost:8000/graphs/')
-
-# # For debugging 
-# print("Status code:", response.status_code)
-# print("Response text:", response.text)
-
 graphs = response.json()
 
 # Generate and display pie charts for each categorical attribute
@@ -35,6 +30,7 @@ for attribute, values in graphs['pie_charts'].items():
     fig = px.pie(df, values='value', names='attribute', title='')
     st.plotly_chart(fig)
 
+# Colors
 colors = ["orange", "blue", "green"]
 
 # Generate and display bar charts for each categorical attribute

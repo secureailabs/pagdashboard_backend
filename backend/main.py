@@ -53,11 +53,6 @@ async def get_graph_data():
     pie_charts = {}
     bar_charts = {}
 
-    # # For debugging
-    # print(f"Dataframe Columns: {data_frame.columns}")
-    # print(f"Categorical Attributes: {categorical_attributes}")
-    # print(f"Continuous Attributes: {continuous_attributes}")
-
     for column in categorical_attributes:
             if column in data_frame.columns:
                 pie_charts[column] = dict(data_frame[column].value_counts())
