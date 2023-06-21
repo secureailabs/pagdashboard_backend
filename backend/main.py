@@ -6,7 +6,6 @@ import numpy as np
 import plotly.graph_objs as go
 import plotly.express as px
 import json
-from data_model import data_model
 
 app = FastAPI()
 
@@ -18,6 +17,10 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Read the data model configuration from the JSON file
+with open('data_model.json') as f:
+    data_model = json.load(f)
 
 @app.on_event("startup")
 async def load_data():
@@ -43,9 +46,10 @@ def preprocess_data():
 
 # Return categorical and continuous attributes from the data model
 def get_attributes_by_type():
-    categorical_attributes = [value['series_name'] for key, value in data_model.items() if value['__type__'] == 'SeriesDataModelCategorical']
-    # continuous_attributes = [value['series_name'] for key, value in data_model.items() if value['__type__'] == 'SeriesDataModelDate']
-    # continuous_attributes.extend(["Age at diagnosis in years", "Age at death in years", "Survival time in years"])
+    categorical_attributes = []
+    for key, value in data_model.items():
+        if value['__type__'] == 'SeriesDataModelCategorical':
+            categorical_attributes.append(value['series_name'])
     continuous_attributes = ["Age at diagnosis in years", "Age at death in years", "Survival time in years"]
     return categorical_attributes, continuous_attributes
 
