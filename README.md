@@ -6,7 +6,7 @@ Clone the repository in your local terminal
     $ git clone git@github.com:secureailabs/pagdashboard_backend.git
 
 ## Install dependencies 
-    pip install -r requirements.txt
+    $ pip install -r requirements.txt
 
 ## TO RUN THE DEV SERVER LOCALLY
 Create a python virtual environment
