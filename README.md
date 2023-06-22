@@ -11,19 +11,19 @@ Clone the repository in your local terminal
 ## TO RUN THE DEV SERVER LOCALLY
 Create a python virtual environment
     
-    cd backend
+    $ cd backend
 
-    virtualenv env 
+    $ virtualenv env 
     
 Activate the python virtual environment
     
-    source env/bin/activate
+    $ source env/bin/activate
 
 In your local terminal of the "backend" directory, run:
 
-    uvicorn main:app --reload
+    $ uvicorn main:app --reload
 
 
 In a separate terminal of the "backend" directory, run: 
     
-    streamlit run app.py
+    $ streamlit run app.py
