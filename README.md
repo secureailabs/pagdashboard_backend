@@ -11,11 +11,11 @@ Clone the repository in your local terminal
 ## TO RUN THE DEV SERVER LOCALLY
 Create a python virtual environment
     
+    cd backend
+
     virtualenv env 
     
 Activate the python virtual environment
-    
-    cd backend
     
     source env/bin/activate
 
